@@ -7,9 +7,11 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'SG200X'
-copyright = '2023, Sophgo'
+copyright = '2023 SOPHGO Co., Ltd'
 author = 'Sophgo'
-release = '0.1'
+release = '0.0.1'
+
+title = '技术参考手册'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -24,5 +26,47 @@ language = 'zh_CN'
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'alabaster'
+html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
+
+latex_maketitle = r'''
+		\begin{titlepage}
+		\begin{center}
+		\includegraphics[width=0.8\textwidth]{logo.png}
+		\vspace*{2cm}
+
+		\Huge \textbf{'''+ project + r'''} \par
+		\vspace*{1cm}
+		\Huge \textbf{'''+ title + r'''} \par
+		\vspace*{6cm}
+		\end{center}
+		\noindent \Large 版本 : ''' + release + r'''\par
+		\vspace*{2cm}
+		\noindent \normalsize Copyright © ''' + copyright + r'''. All rights reserved.\\
+		\noindent \normalsize 本文件所含信息归XXXX公司所有。\\
+		\noindent \normalsize 未经授权，严禁全部或部分复制或披露该等信息。\\
+		\end{titlepage}'''
+
+latex_preamble = r'''
+		\usepackage{tocloft}
+		\renewcommand\cftfignumwidth{4em}
+		\renewcommand\cfttabnumwidth{4em}
+		\renewcommand\cftsecnumwidth{4em}
+		\renewcommand\cftsubsecnumwidth{6em}
+		\renewcommand\cftparanumwidth{6em}
+		\usepackage{fancyhdr}
+		\setlength\headheight{14pt}
+		\fancypagestyle{normal}{
+			\fancyhead[R]{}
+			\fancyhead[C]{\leftmark}
+			\fancyfoot[C]{Copyright © ''' + copyright + r'''}
+			\fancyfoot[R]{\thepage}
+			\renewcommand{\headrulewidth}{0.4pt}
+			\renewcommand{\footrulewidth}{0pt}
+		}'''
+
+latex_elements = {
+	'maketitle': latex_maketitle,
+
+	'preamble': latex_preamble,
+}
