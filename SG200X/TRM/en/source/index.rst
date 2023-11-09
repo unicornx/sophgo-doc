@@ -31,3 +31,4 @@ Revision          Date             Description
    3_U-boot_Setup
    4_Linux_Kernel
    5_Root_File_System(rootfs)
+   6_DPC

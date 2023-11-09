@@ -25,3 +25,4 @@ Revision          Date             Description
    3_U-boot_Kernel
    4_Linux_Kernel
    5_Root_File_System
+   6_DPC
